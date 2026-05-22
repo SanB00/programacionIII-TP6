@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TP6Grupo18
+namespace TP6Grupo18.Ejercicio2
 {
 
 

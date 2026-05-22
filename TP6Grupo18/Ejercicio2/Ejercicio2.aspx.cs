@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace TP6Grupo18
+namespace TP6Grupo18.Ejercicio2
 {
     public partial class Ejercicio2 : System.Web.UI.Page
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
         protected void Page_Load(object sender, EventArgs e) {
 
         }

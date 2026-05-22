@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TP6Grupo18.Ejercicio1
+namespace TP6Grupo18.Ejercicio2
 {
 
 
-    public partial class Ejercicio1
+    public partial class SeleccionarProductos
     {
 
         /// <summary>
