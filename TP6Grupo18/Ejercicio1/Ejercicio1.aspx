@@ -9,7 +9,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            1<br />
+            <h1>Productos</h1>
+            <br />
+            <asp:GridView ID="gvProductos" runat="server"
+                AllowPaging="True"
+                PageSize="10"
+                AutoGenerateColumns="True"
+                OnPageIndexChanging="gvProductos_PageIndexChanging" />
         </div>
     </form>
 </body>
