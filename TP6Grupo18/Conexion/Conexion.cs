@@ -3,11 +3,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace TP6Grupo18
-{
-    public class Conexion
-    {
-        private const string cadenaConexion = @"Data Source=localhost\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+namespace TP6Grupo18 {
+    public class Conexion {
+        private const string cadenaConexion = @"Initial Catalog=Neptuno;Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True";
         //private const string cadenaConexion = @"Data Source=localhost;Initial Catalog=Neptuno;Integrated Security=True;Trust Server Certificate=True";
 
         //private const string cadenaConexion = @"Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno;Integrated Security=True";
@@ -33,49 +31,39 @@ namespace TP6Grupo18
 		Guillermo
 			 private const string cadenaConexion=@"Initial Catalog=Neptuno;Data Source=localhost;Integrated Security=True";
          */
-        public Conexion()
-        {
+        public Conexion() {
 
         }
 
-        public SqlConnection obtenerConexion()
-        {
+        public SqlConnection obtenerConexion() {
             SqlConnection sqlConnection = new SqlConnection(cadenaConexion);
-            try
-            {
+            try {
                 sqlConnection.Open();
                 return sqlConnection;
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
                 return null;
             }
         }
 
-        public SqlDataAdapter obtenerAdaptador(string consultaSql)
-        {
+        public SqlDataAdapter obtenerAdaptador(string consultaSql) {
             SqlDataAdapter sqlDataAdapter;
-            try
-            {
+            try {
                 sqlDataAdapter = new SqlDataAdapter(consultaSql, obtenerConexion());
                 return sqlDataAdapter;
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
                 return null;
             }
         }
 
-        public int ejecutarProcedimientoAlmacenado(SqlCommand comandoSQL, string nombreProcedimientoAlmacenado) 
-        {
+        public int ejecutarProcedimientoAlmacenado(SqlCommand comandoSQL, string nombreProcedimientoAlmacenado) {
             int filasCambiadas;
             SqlConnection conexion = obtenerConexion();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand = comandoSQL;
             sqlCommand.Connection = conexion;
-            sqlCommand.CommandType = CommandType.StoredProcedure;   
-            sqlCommand.CommandText = nombreProcedimientoAlmacenado; 
-            filasCambiadas = sqlCommand.ExecuteNonQuery();          
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = nombreProcedimientoAlmacenado;
+            filasCambiadas = sqlCommand.ExecuteNonQuery();
             return filasCambiadas;
         }
         #region ANTERIOR CLASE CONEXION.CS
@@ -84,11 +72,10 @@ namespace TP6Grupo18
             try {
                 string dbBaseWebconfig = ConfigurationManager.ConnectionStrings[webconfigAttribute].ConnectionString;
                 return $"{dbBaseWebconfig};Initial Catalog = {nombreBBDD}";
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 throw new Exception($"Error al obtener la cadena de conexión '{webconfigAttribute}'. Revisar WEB.CONFIG: \n\n" + e.Message);
             }
-    }
+        }
 
         /* @autor Santi | Elián
          * ejecutarConsulta antes llamado obtenerTablaDeLaBaseDeDatos
@@ -111,8 +98,7 @@ namespace TP6Grupo18
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlConnection.Open();
                     sqlDataAdapter.Fill(dataTable);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     if ((e is SqlException ex)) {
                         switch (ex.Number) {
                             // Connection & String Errors
@@ -125,8 +111,7 @@ namespace TP6Grupo18
                             default:
                                 throw new Exception($"SQL Error ({ex.Number}): {ex.Message}");
                         }
-                    }
-                    else
+                    } else
                         throw new Exception($"Error al consultar la base de datos: \n{e.Message}");
                 }
             }
@@ -138,7 +123,7 @@ namespace TP6Grupo18
          * @param consultaSQL: La consulta SQL a ejecutar. Ejemplo:´ "UPDATE Empleados SET Salario = Salario * 1.1 WHERE Departamento = 'Ventas'";
          */
         public int ejecutarTransaccion(string consultaSQL) {
-            string connectionString = string.IsNullOrEmpty(cadenaConexion) ? this.obtenerCadenaDeConexion("BDSucursales") : cadenaConexion;
+            string connectionString = string.IsNullOrEmpty(cadenaConexion) ? this.obtenerCadenaDeConexion("Neptuno") : cadenaConexion;
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
 
