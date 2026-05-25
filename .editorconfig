@@ -30,7 +30,7 @@ dotnet_naming_symbols.method_symbols.applicable_accessibilities = *
 # Enforce camelCase on methods
 dotnet_naming_rule.methods_should_be_camel_case.symbols = method_symbols
 dotnet_naming_rule.methods_should_be_camel_case.style = camel_case_style
-dotnet_naming_rule.methods_should_be_camel_case.severity = warning
+dotnet_naming_rule.methods_should_be_camel_case.severity = error #warning
 
 # Enforce camelCase on variables and parameters
 dotnet_naming_rule.variables_should_be_camel_case.symbols = variable_symbols
