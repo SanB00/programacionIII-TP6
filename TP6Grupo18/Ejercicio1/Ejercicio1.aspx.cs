@@ -29,6 +29,18 @@ namespace TP6Grupo18.Ejercicio1 {
             gvProductos.PageIndex = e.NewPageIndex;
             cargarProductos();
         }
+        protected void gvProductos_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e) {
+
+            int idProducto = Convert.ToInt32(gvProductos.DataKeys[e.RowIndex].Value);
+
+            string consultaSQL = "DELETE FROM Productos " + "WHERE IdProducto = " + idProducto;
+
+            Conexion conexion = new Conexion();
+
+            conexion.ejecutarTransaccion(consultaSQL);
+
+            cargarProductos();
+        }
 
     }
 }

@@ -7,7 +7,8 @@ namespace TP6Grupo18
 {
     public class Conexion
     {
-        private const string cadenaConexion = @"Data Source=localhost;Initial Catalog=Neptuno;Integrated Security=True;Trust Server Certificate=True";
+        private const string cadenaConexion = @"Data Source=localhost\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        //private const string cadenaConexion = @"Data Source=localhost;Initial Catalog=Neptuno;Integrated Security=True;Trust Server Certificate=True";
 
         //private const string cadenaConexion = @"Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno;Integrated Security=True";
         /*
@@ -37,7 +38,7 @@ namespace TP6Grupo18
 
         }
 
-        public SqlConnection ObtenerConexion()
+        public SqlConnection obtenerConexion()
         {
             SqlConnection sqlConnection = new SqlConnection(cadenaConexion);
             try
@@ -51,12 +52,12 @@ namespace TP6Grupo18
             }
         }
 
-        public SqlDataAdapter ObtenerAdaptador(string consultaSql)
+        public SqlDataAdapter obtenerAdaptador(string consultaSql)
         {
             SqlDataAdapter sqlDataAdapter;
             try
             {
-                sqlDataAdapter = new SqlDataAdapter(consultaSql, ObtenerConexion());
+                sqlDataAdapter = new SqlDataAdapter(consultaSql, obtenerConexion());
                 return sqlDataAdapter;
             }
             catch (Exception exception)
@@ -65,17 +66,17 @@ namespace TP6Grupo18
             }
         }
 
-        public int EjecutarProcedimientoAlmacenado(SqlCommand comandoSQL, string nombreProcedimientoAlmacenado) 
+        public int ejecutarProcedimientoAlmacenado(SqlCommand comandoSQL, string nombreProcedimientoAlmacenado) 
         {
-            int FilasCambiadas;
-            SqlConnection Conexion = ObtenerConexion();
+            int filasCambiadas;
+            SqlConnection conexion = obtenerConexion();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand = comandoSQL;
-            sqlCommand.Connection = Conexion;
+            sqlCommand.Connection = conexion;
             sqlCommand.CommandType = CommandType.StoredProcedure;   
             sqlCommand.CommandText = nombreProcedimientoAlmacenado; 
-            FilasCambiadas = sqlCommand.ExecuteNonQuery();          
-            return FilasCambiadas;
+            filasCambiadas = sqlCommand.ExecuteNonQuery();          
+            return filasCambiadas;
         }
         #region ANTERIOR CLASE CONEXION.CS
         public string obtenerCadenaDeConexion(string nombreBBDD) {

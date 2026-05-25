@@ -12,11 +12,11 @@ namespace TP6Grupo18
             
         }
 
-        private DataTable ObtenerTabla(string nombreTabla, string consultaSQL)
+        private DataTable obtenerTabla(string nombreTabla, string consultaSQL)
         {
             DataSet dataSet = new DataSet();
             Conexion datos = new Conexion();
-            SqlDataAdapter sqlDataAdapter = datos.ObtenerAdaptador(consultaSQL);
+            SqlDataAdapter sqlDataAdapter = datos.obtenerAdaptador(consultaSQL);
             sqlDataAdapter.Fill(dataSet, nombreTabla);
             return dataSet.Tables[nombreTabla];
         }
