@@ -11,14 +11,12 @@ namespace TP6Grupo18.Ejercicio1 {
         }
 
         private void cargarProductos() {
-            const string consultaSQL = "SELECT IdProducto AS 'Id Producto' " +
-                ", NombreProducto AS 'Nombre Producto'" +
-                ", CantidadPorUnidad AS 'Cantidad Por Unidad'" +
-                ", PrecioUnidad AS 'Precio Unidad'" +
-                "FROM Productos";
+           
+            const string consultaSQL = "SELECT IdProducto, NombreProducto, CantidadPorUnidad, PrecioUnidad FROM Productos";
+
             gvProductos.DataSource = new Conexion().ejecutarConsulta(consultaSQL);
             gvProductos.DataBind();
-            // error CS0122: 'ComandosGestion.ObtenerTabla(string,string)' is inaccessible due to its protection level
+        
             // ComandosGestion objComandosGestion = new ComandosGestion();
             // const string nombreTabla = "Productos";
             // const string consultaSQL = "SELECT * FROM Productos";
