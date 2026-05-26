@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Web.UI.WebControls;
 
 namespace TP6Grupo18.Ejercicio2
@@ -22,6 +23,15 @@ namespace TP6Grupo18.Ejercicio2
             gvSeleccionar.PageIndex = e.NewPageIndex;
             cargaGridView();
         }
+        protected void gvSeleccionar_SelectedIndexChanged(object sender, EventArgs e) {
+            string idProducto = ((Label)gvSeleccionar.SelectedRow.FindControl("lbl_it_idProdu")).Text;
+            string nombreProducto = ((Label)gvSeleccionar.SelectedRow.FindControl("lb_it_NombreProd")).Text;
+
+            lblSelect.Text = "Artículo agregado: " + nombreProducto;
+
+
+        }
+
     }
 
 }
