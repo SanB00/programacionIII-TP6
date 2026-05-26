@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 
 namespace TP6Grupo18.Ejercicio2
 {
@@ -17,5 +18,10 @@ namespace TP6Grupo18.Ejercicio2
             gvSeleccionar.DataSource = new Conexion().ejecutarConsulta(consultaSQL);
             gvSeleccionar.DataBind();
         }
+        protected void gvSeleccionar_PageIndexChanging(object sender, GridViewPageEventArgs e) {
+            gvSeleccionar.PageIndex = e.NewPageIndex;
+            cargaGridView();
+        }
     }
+
 }

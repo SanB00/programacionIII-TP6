@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace TP6Grupo18
 {
@@ -20,18 +21,7 @@ namespace TP6Grupo18
             sqlDataAdapter.Fill(dataSet, nombreTabla);
             return dataSet.Tables[nombreTabla];
         }
-
-        
-
-
-
-
-
-
-
-
-
-
+       
     }
 
 }  
