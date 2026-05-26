@@ -48,6 +48,7 @@
         <p>
             <asp:Label ID="lblSelect" runat="server"></asp:Label>
         </p>
+        <asp:HyperLink ID="lnkEjercicio2" runat="server" Text="Ejercicio 2" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver al incicio</asp:HyperLink>
     </form>
 </body>
 </html>
