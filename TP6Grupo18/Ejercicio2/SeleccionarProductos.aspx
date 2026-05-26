@@ -9,6 +9,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div>
+
+            <asp:GridView ID="gvProductos" runat="server">
+            </asp:GridView>
+        </div>
             <asp:GridView ID="gvSeleccionar" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvSeleccionar_SelectedIndexChanged" PageSize="13" OnPageIndexChanging="gvSeleccionar_PageIndexChanging" DataKeyNames="IdProducto">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -48,7 +53,17 @@
         <p>
             <asp:Label ID="lblSelect" runat="server"></asp:Label>
         </p>
-        <asp:HyperLink ID="lnkEjercicio2" runat="server" Text="Ejercicio 2" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver al incicio</asp:HyperLink>
+        <p>
+    <asp:HyperLink 
+        ID="hlMostrar" 
+        runat="server"
+        NavigateUrl="~/Ejercicio2/MostrarProductos.aspx">
+        Mostrar seleccionados
+    </asp:HyperLink>
+       </p>
+         <p>
+            <asp:HyperLink ID="hlVolverAlInicio" runat="server" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver al Inicio</asp:HyperLink>
+        </p>
     </form>
 </body>
 </html>
