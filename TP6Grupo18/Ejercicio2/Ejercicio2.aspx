@@ -13,11 +13,12 @@
         </div>
         <asp:HyperLink ID="hlSeleccionarProd" runat="server" NavigateUrl="~/Ejercicio2/SeleccionarProductos.aspx" ViewStateMode="Disabled">Seleccionar Producto</asp:HyperLink>
         <p>
-            <asp:LinkButton ID="lbEliminarProductosSeleccionados" runat="server">Eliminar Productos seleccionados</asp:LinkButton>
+            <asp:LinkButton ID="lbEliminarProductosSeleccionados" runat="server" OnClick="lbEliminarProductosSeleccionados_Click">Eliminar Productos seleccionados</asp:LinkButton>
         </p>
         <p>
             <asp:HyperLink ID="hlMostrarProductos" runat="server" NavigateUrl="~/Ejercicio2/MostrarProductos.aspx">Mostrar Productos</asp:HyperLink>
         </p>
+        <a href="Ejercicio2.aspx.cs">Ejercicio2.aspx.cs</a>
     </form>
 </body>
 </html>

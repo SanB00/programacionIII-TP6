@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 namespace TP6Grupo18 {
     public class Conexion {
         private const string cadenaConexion = @"Initial Catalog=Neptuno;Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True";
+        // private const string cadenaConexion = @"Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno;Integrated Security=True";
+
 
         //private const string cadenaConexion = @"Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno;Integrated Security=True";
         /*
