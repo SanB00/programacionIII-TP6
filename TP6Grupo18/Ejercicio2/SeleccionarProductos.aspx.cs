@@ -2,14 +2,12 @@
 using System.Data;
 using System.Web.UI.WebControls;
 
-namespace TP6Grupo18.Ejercicio2
-{
+namespace TP6Grupo18.Ejercicio2 {
     public partial class SeleccionarProductos : System.Web.UI.Page {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
 
         protected void Page_Load(object sender, EventArgs e) {
-            if (Page.IsPostBack == false) 
-            {
+            if (Page.IsPostBack == false) {
                 cargaGridView();
             }
         }
@@ -32,13 +30,25 @@ namespace TP6Grupo18.Ejercicio2
             if (Session["tabla"] == null) {
                 Session["tabla"] = crearTabla();
             }
-            
+
             DataTable tablaSession = (DataTable)Session["tabla"];
+
+            if (existeProductoSeleccionado(idProducto)) {
+                Common.mostrarMensajeEnAlerta($"producto {idProducto} seleccionado.", this);
+                return;
+            }
 
             agregarFila(tablaSession, idProducto, nombreProducto, idProveedor, precioUnidad);
 
             lblSelect.Text = "Artículo agregado: " + nombreProducto;
         }
+
+        private bool existeProductoSeleccionado(string idProducto) {
+            DataTable tablaSession = (DataTable)Session["tabla"];
+            DataRow[] foundRows = tablaSession.Select($"IdProducto = '{idProducto}'");
+            return foundRows.Length > 0;
+        }
+
         private DataTable crearTabla() {
             DataTable dataTable = new DataTable();
 

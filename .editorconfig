@@ -35,12 +35,12 @@ dotnet_naming_rule.methods_should_be_camel_case.severity = error #warning
 # Enforce camelCase on variables and parameters
 dotnet_naming_rule.variables_should_be_camel_case.symbols = variable_symbols
 dotnet_naming_rule.variables_should_be_camel_case.style = camel_case_style
-dotnet_naming_rule.variables_should_be_camel_case.severity = warning
+dotnet_naming_rule.variables_should_be_camel_case.severity = error
 
 # Enforce PascalCase on classes and types
 dotnet_naming_rule.classes_should_be_pascal_case.symbols = class_symbols
 dotnet_naming_rule.classes_should_be_pascal_case.style = pascal_case_style
-dotnet_naming_rule.classes_should_be_pascal_case.severity = warning
+dotnet_naming_rule.classes_should_be_pascal_case.severity = error
 
 
 #### 1. INDENTATION & TABS ####
@@ -56,7 +56,7 @@ csharp_space_before_open_brace_in_type_declaration = true
 
 #### 3. SPACING (Style) ####
 # Enforces a space after control flow keywords: 'if (x)' instead of 'if(x)'
-#csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_after_keywords_in_control_flow_statements = true
 
 # Spaces inside expressions and blocks
 csharp_space_between_method_call_parameter_list_parentheses = false
