@@ -9,7 +9,61 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div>
+
+            <asp:GridView ID="gvProductos" runat="server">
+            </asp:GridView>
         </div>
+            <asp:GridView ID="gvSeleccionar" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvSeleccionar_SelectedIndexChanged" PageSize="13" OnPageIndexChanging="gvSeleccionar_PageIndexChanging" DataKeyNames="IdProducto">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:TemplateField HeaderText="ID de Producto">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_idProdu" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre de Producto">
+                        <ItemTemplate>
+                            <asp:Label ID="lb_it_NombreProd" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="ID de Proveedor">
+                        <ItemTemplate>
+                            <asp:Label ID="lb_it_Prov" runat="server" Text='<%# Bind("IdProveedor") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Precio">
+                        <ItemTemplate>
+                            <asp:Label ID="lb_it_PrecioU" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </div>
+        <p>
+            <asp:Label ID="lblSelect" runat="server"></asp:Label>
+        </p>
+        <p>
+    <asp:HyperLink 
+        ID="hlMostrar" 
+        runat="server"
+        NavigateUrl="~/Ejercicio2/MostrarProductos.aspx">
+        Mostrar seleccionados
+    </asp:HyperLink>
+       </p>
+         <p>
+            <asp:HyperLink ID="hlVolverAlInicio" runat="server" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver al Inicio</asp:HyperLink>
+        </p>
     </form>
 </body>
 </html>
